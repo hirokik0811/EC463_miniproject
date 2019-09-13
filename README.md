@@ -7,11 +7,11 @@ SW mini project for EC463 senior design I
 
 
 # How to Run the Server 
-'''console
+```console
 python manage.py runserver
-'''
+```
 
 # How to Add an App
-'''console
+```console
 python manage.py startapp APP_NAME
-'''
+```
