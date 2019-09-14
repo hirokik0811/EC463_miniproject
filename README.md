@@ -9,3 +9,6 @@ SW mini project for EC463 senior design I
 ```console
 $ python manage.py runserver
 ```
+
+## Current branch Abilities
+User types the desired city in the web app, and the current temperature is displayed.
