@@ -12,3 +12,4 @@ $ python manage.py runserver
 
 ## Current branch Abilities
 User types the desired city in the web app, and the current temperature is displayed.
+To enter admin mode, type /admin at the end of the url used to access the app. This is a superuser who has permissions to manage the database.
