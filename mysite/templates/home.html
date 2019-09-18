@@ -1,8 +1,59 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block content %}
 	{% if user.is_authenticated %}
-             <p class="display-4">Hello, {{ user.username }}</p>
+		 <section class="hero is-primary">
+	        <div class="hero-body">
+	            <div class="container">
+	                <h1 class="title">
+	                    Hello, {{ user.username }}
+	                </h1>
+	            </div>
+	        </div>
+	     </section>
+	     <section>
+	     
+	     <div class="tile is-parent">
+         <a href="{% url 'weather' %}">
+		                    <div class="tile box">
+		                        <article class="media">
+		                            <div class="media-left">
+		                                <figure class="image is-50x50">
+		                                    <img src="{%static "images/sunny_weather.png"%}" alt="Weather">
+		                                </figure>
+		                            </div>
+		                                <div class="content">
+		                                    <p>
+		                                        <span class="title">Weather</span>
+		                                        <br>
+		                                    </p>
+		                                </div>
+		                        </article>
+		                    </div>
+		                
+		 </a><br>
+		 <a href="{% url 'login' %}">
+		                    <div class="tile box">
+		                        <article class="media">
+		                            <div class="media-left">
+		                                <figure class="image is-50x50">
+		                                    <img src="{%static "images/lightning_weather.png"%}" alt="***TEST***">
+		                                </figure>
+		                            </div>
+		                                <div class="content">
+		                                    <p>
+		                                        <span class="title">***TEST***</span>
+		                                        <br>
+		                                    </p>
+		                                </div>
+		                        </article>
+		                    </div>
+		                
+		 </a><br>
+		 </div>
+		 
+		 </section>
 	{% else %}
              <a class="lead" href="{% url 'login' %}">Log in</a>
 	{% endif %}
