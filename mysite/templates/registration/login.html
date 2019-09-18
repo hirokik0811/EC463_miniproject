@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block content %}
+  <center>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h2>Login</h2>
+  <a href="{% url 'social:begin' 'google-oauth2' %}">
+    <img src="{% static "images/btn_google_signin_light_normal_web@2x.png" %}" width=300 alt="Google">
+  </a><br>
+  </center>
+{% endblock %}
