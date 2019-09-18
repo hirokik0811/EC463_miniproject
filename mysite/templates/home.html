@@ -8,47 +8,58 @@
 	            <div class="container">
 	                <h1 class="title">
 	                    Hello, {{ user.username }}
-	                </h1>
+	                
+	                <a href="{% url 'logout' %}">
+	                    <div class="button is-dark is-pulled-right">
+                            Logout
+                        </div>
+                    </a><br>
+                    </h1>
 	            </div>
 	        </div>
 	     </section>
-	     <section>
 	     
+	     <section>
 	     <div class="tile is-parent">
          <a href="{% url 'weather' %}">
-		                    <div class="tile box">
-		                        <article class="media">
-		                            <div class="media-left">
-		                                <figure class="image is-50x50">
-		                                    <img src="{%static "images/sunny_weather.png"%}" alt="Weather">
-		                                </figure>
-		                            </div>
-		                                <div class="content">
-		                                    <p>
-		                                        <span class="title">Weather</span>
-		                                        <br>
-		                                    </p>
-		                                </div>
-		                        </article>
-		                    </div>
+            <div class="tile is-parent">
+            <div class="tile button  is-child is-light">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-50x50">
+                            <img src="{%static "images/sunny_weather.png"%}" alt="Weather">
+                        </figure>
+                    </div>
+                        <div class="content">
+                            <p>
+                                <p class="title">Weather</p>
+                                <br>
+                            </p>
+                        </div>
+                </article>
+            </div>
+            </div>
+            
 		                
 		 </a><br>
 		 <a href="{% url 'login' %}">
-		                    <div class="tile box">
-		                        <article class="media">
-		                            <div class="media-left">
-		                                <figure class="image is-50x50">
-		                                    <img src="{%static "images/lightning_weather.png"%}" alt="***TEST***">
-		                                </figure>
-		                            </div>
-		                                <div class="content">
-		                                    <p>
-		                                        <span class="title">***TEST***</span>
-		                                        <br>
-		                                    </p>
-		                                </div>
-		                        </article>
-		                    </div>
+		    <div class="tile is-parent">
+            <div class="tile button  is-child is-light">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-50x50">
+                            <img src="{%static "images/lightning_weather.png"%}" alt="***TEST***">
+                        </figure>
+                    </div>
+                        <div class="content">
+                            <p>
+                                <p class="title">***TEST***</p>
+                                <br>
+                            </p>
+                        </div>
+                </article>
+            </div>
+            </div>
 		                
 		 </a><br>
 		 </div>
