@@ -7,4 +7,7 @@ class CityForm(ModelForm):
 		fields = ['name']
 		widgets = {
 			'name' : TextInput(attrs={'class' : 'input', 'placeholder' : 'City Name'}),
-	}
+	    }
+	def raise_error(self, error_message):
+		self.error = True
+		self.error_message = error_message

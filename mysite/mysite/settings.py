@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'home',
     'weather',
 ]
 
@@ -147,3 +148,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'vcLlbduQI3fQ8hNf_KfWN04U'
 SOCIAL_AUTH_GITHUB_KEY = '39997a369b8a009f61ed'
 SOCIAL_AUTH_GITHUB_SECRET = 'efaaad3363c9e74492dd3684f26a572221c930de'
 '''
+
+GEOIP_PATH =os.path.join(BASE_DIR, 'geoip')

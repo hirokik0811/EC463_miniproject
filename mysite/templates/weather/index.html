@@ -38,6 +38,39 @@
                             </div>
                         </div>
                     </form>
+                    {% if invalid_message != '' %}
+			            <p style="color:red">{{ invalid_message }}</p>
+			            <br>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                <p class="title"> Current Weather </p>
+			    <br>
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                    <img src="http://openweathermap.org/img/w/{{ cur_weather.icon}}.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ cur_weather.city }}</span>
+                                        <br>
+                                        <span class="subtitle">{{ cur_weather.temperature }}° F</span>
+                                        <br> {{cur_weather.description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
