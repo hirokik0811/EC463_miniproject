@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
 </head>
 <body>
+<a href="{% url 'home' %}">
 	<section class="hero is-dark is-thin">
         <div class="hero-body">
             <div class="container">
@@ -16,6 +17,7 @@
             </div>
         </div>
     </section>
+</a><br>
 	    {% block content %}	
 	    {% endblock content %}
 </body>
