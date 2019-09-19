@@ -25,31 +25,6 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                {{ form.name }}
-                            </div>
-                            <div class="control">
-                                <button class="button is-info">
-                                    Add City
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    {% if invalid_message != '' %}
-			            <p style="color:red">{{ invalid_message }}</p>
-			            <br>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
                 <p class="title"> Current Weather </p>
 			    <br>
                     <div class="box">
@@ -71,6 +46,32 @@
                             </div>
                         </article>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                <p class="title"> Add Location </p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ form.name }}
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    {% if invalid_message != '' %}
+			            <p style="color:red">{{ invalid_message }}</p>
+			            <br>
+                    {% endif %}
                 </div>
             </div>
         </div>
