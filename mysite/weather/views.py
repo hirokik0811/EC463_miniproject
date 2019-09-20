@@ -5,8 +5,8 @@ from .models import City
 from .forms import CityForm
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geoip2 import GeoIP2
-
 # Create your views here.
+
 def index(request):
 	url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=d5ce99cb6977c026aa0c2b641554b743'
 	User = apps.get_model('home', 'User')
