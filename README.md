@@ -3,7 +3,7 @@ SW mini project for EC463 senior design I
 
 # Prereq 
 * Python 3.x
-* And install the following libraries _via_ "pip install":
+And install the following libraries _via_ "pip install":
 - django
 - social-auth-app-django
 - geoip2**
