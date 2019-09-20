@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from setuptools import setup
+
 
 
 def main():
@@ -18,4 +20,25 @@ def main():
 
 
 if __name__ == '__main__':
+    """
+    setup(name='miniproject',
+      version='0.1',
+      description='EC463 SW mini project',
+      url='https://github.com/hirokik0811/EC463_miniproject',
+      author='Hiroki Kawai, Zachary Bachrach',
+      author_email='hirokik@bu.edu',
+      license='MIT',
+      packages=['miniproject'],
+      install_requires=[
+          'openpyxl',
+          'pandas',
+          'django',
+          'social-auth-app-django',
+          'geoip2',
+          'matplotlib',
+          'postgres',
+          'django-tz-detect'
+      ],
+      zip_safe=False)
+    """
     main()
