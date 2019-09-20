@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
     url(r'^$', include('home.urls'), name='home'),
     url(r'^weather/', include('weather.urls'), name='weather'),
+    url(r'^temperature/', include('temperature.urls'), name='temperature'),
+    url(r'^tz_detect/', include('tz_detect.urls')),
 ]

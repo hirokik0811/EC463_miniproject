@@ -5,8 +5,8 @@ from .models import City
 from .forms import CityForm
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geoip2 import GeoIP2
-
 # Create your views here.
+
 def index(request):
 	url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=d5ce99cb6977c026aa0c2b641554b743'
 	User = apps.get_model('home', 'User')
@@ -47,7 +47,7 @@ def index(request):
 		# if the city name is invalid, do nothing and display an error message. 
 		if 'message' in city_weather.keys() and city_weather['message'] == 'city not found':
 			invalid_message = 'city not found'
-			
+		
 	# delete duplicates
 	for city in cities.distinct():
 		cities.filter(pk__in=cities.filter(name=city.name).values_list('id', flat=True)[1:]).delete()

@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block content %}
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Know Better about Your Rooms
+                </h1>
+                <h1>
+		            {{cur_datetime}}
+		        </h1>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+		            <h1 class="title">
+		                Today's Temperature
+		            </h1>
+	                <figure>
+				    {% if svg1 %}
+						  {% autoescape off %}
+						  {{ svg1 }}
+						  {% endautoescape %}
+				    {% endif %}
+				    </figure>
+				</div>
+		
+                <div class="column">
+		            <h1 class="title">
+		                Today's Humidity
+		            </h1>
+	                <figure>
+				    {% if svg2 %}
+						  {% autoescape off %}
+						  {{ svg2 }}
+						  {% endautoescape %}
+				    {% endif %}
+				    </figure>
+				</div>
+			</div>
+	    </div>
+    </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                <p class="title"> Add Room </p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ roomform.name }}
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Add Room
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                <p class="title"> Change Interval </p>
+                <p> Currently the temperature is measured every {{interval}} min. </p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                {{ intform.name }}
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    Change Interval
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+{% endblock %}
