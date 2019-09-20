@@ -43,6 +43,9 @@ def index(request):
     cur_datetime = timezone.now()
     cur_datetime_str = cur_datetime.strftime("%c")
     last_datetime = datas.aggregate(Max('datetime'))['datetime__max']
+    if last_datetime is None:
+        last_datetime = cur_datetime
+    
     # delete data more than one day old
     datas.filter(datetime__lte = cur_datetime - timedelta(0, 24*60*60)).delete()
             
@@ -68,27 +71,27 @@ def index(request):
     
     # Add a new room
     if request.method == 'POST':
+        print(request.POST)
         new_room = Room(parent_user=user_dt)
-        new_int = Interval(parent_user = user_dt)
+        #new_int = Interval(parent_user = user_dt)
         roomform = RoomForm(request.POST, instance=new_room)
-        intform = IntervalForm(request.POST, instance=new_int)
-        if roomform.is_valid():
+        intform = IntervalForm(request.POST, instance=interval_dt)
+        if intform.is_valid():
+            intform.save()
+            #interval_dt.delete()
+            #interval_dt = new_int
+            interval = interval_dt.interval
+        elif roomform.is_valid():
             roomform.save()
             rooms = Room.objects.filter(parent_user = user_dt)
             datas = add_newdata([new_room])
-        elif intform.is_valid():
-            intform.save()
-            interval_dt.delete()
-            interval_dt = new_int
+        
     roomform = RoomForm()
     intform = IntervalForm()
             
-    interval = interval_dt.interval
     
     # Every interval min, obtain new temp/humid
-    if not datas or last_datetime is None:
-        datas = add_newdata(rooms)
-    elif (cur_datetime - last_datetime).seconds > 60*interval:
+    if (cur_datetime - last_datetime).seconds > 60*interval:
         datas = add_newdata(rooms)
     
     # delete duplicates
@@ -97,13 +100,11 @@ def index(request):
         
     
     time_dict = {}
-    time_str_dict = {}
     temp_dict = {}
     humid_dict = {}
     for room in rooms:
         target_datas = datas.filter(parent_room = room)
         time_dict[room] = [dat.datetime for dat in target_datas]
-        time_str_dict[room] = [dat.datetime.strftime("%H:%M") for dat in target_datas]
         temp_dict[room] = [dat.temperature for dat in target_datas]
         humid_dict[room] = [dat.humidity for dat in target_datas]
         
@@ -116,13 +117,9 @@ def index(request):
             if t not in time_dict[room]:
                 time_dict[room].append(t)
                 time_dict[room].sort()
-                target_time_str = [t.strftime("%H:%M") for t in time_dict[room]]
-                time_str_dict[room] = target_time_str
                 idx = time_dict[room].index(t)
                 temp_dict[room].insert(idx, np.nan)
                 humid_dict[room].insert(idx, np.nan)
-            else:
-                print(t)
                 
     """
     # Using excel file is deprecated. 
@@ -141,7 +138,6 @@ def index(request):
 
     excel_data = np.array(excel_data).T
     """
-    print(len(ref_time_list_str))
     def setPlt(x_list, y_list, label):
         plt.plot(range(len(x_list)), y_list, label=label, marker='o')
     def pltToSvg(buf):

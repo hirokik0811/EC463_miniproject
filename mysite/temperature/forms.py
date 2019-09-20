@@ -1,5 +1,6 @@
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, NumberInput
 from .models import Room, Interval
+
 
 class RoomForm(ModelForm):
 	class Meta:
@@ -17,7 +18,7 @@ class IntervalForm(ModelForm):
 		model = Interval
 		fields = ['interval']
 		widgets = {
-			'interval' : TextInput(attrs={'class' : 'input', 'placeholder' : 'Interval'}),
+			'interval' : NumberInput(attrs={'min':0, 'max':59}),
 	    }
 	def raise_error(self, error_message):
 		self.error = True

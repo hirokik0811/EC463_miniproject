@@ -64,6 +64,7 @@
                                 </button>
                             </div>
                         </div>
+                        
                     </form>
                     
                 </div>
@@ -75,12 +76,12 @@
             <div class="columns">
                 <div class="column is-offset-4 is-4">
                 <p class="title"> Change Interval </p>
-                <p> Currently the temperature is measured every {{interval}} min. </p>
+                <p> Currently the temperature is updated every {{interval}} min. </p>
                     <form method="POST">
                         {% csrf_token %}
                         <div class="field has-addons">
                             <div class="control is-expanded">
-                                {{ intform.name }}
+                                {{ intform.interval }}
                             </div>
                             <div class="control">
                                 <button class="button is-info">
