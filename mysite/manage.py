@@ -30,8 +30,6 @@ if __name__ == '__main__':
       license='MIT',
       packages=['miniproject'],
       install_requires=[
-          'openpyxl',
-          'pandas',
           'django',
           'social-auth-app-django',
           'geoip2',

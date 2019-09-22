@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.template import loader, Context
-from django.db.models import Q, Max
+from django.db.models import Max
 from django.utils import timezone
-import openpyxl
 import numpy as np
-import os, io, pytz
+import os, io
 from datetime import datetime, timedelta
 import matplotlib
 matplotlib.use('Agg')

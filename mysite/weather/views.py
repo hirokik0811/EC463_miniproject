@@ -22,8 +22,12 @@ def index(request):
 	        ip = request.META.get('REMOTE_ADDR')
 	    return ip
 	
-	user_ip = '2601:182:c902:5a72:55eb:a4f4:51f2:bd63'
-	#user_ip = get_client_ip(request)
+	# For test on a local server
+	#user_ip = '2601:182:c902:5a72:55eb:a4f4:51f2:bd63'
+	
+	# On a public server
+	user_ip = get_client_ip(request)
+	
 	cur_loc = g.city(user_ip)
 	
 	cur_city = cur_loc['city']
