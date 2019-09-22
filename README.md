@@ -17,3 +17,5 @@ And install the following libraries _via_ "pip install":
 ```console
 $ python manage.py runserver
 ```
+# Deployed Version
+http://hirokik1997.pythonanywhere.com/
